@@ -2,6 +2,8 @@
 set -e
 . ./build.sh
 
+cd $PROJECTROOT
+
 mkdir -p isodir
 mkdir -p isodir/boot
 mkdir isodir/boot/grub
