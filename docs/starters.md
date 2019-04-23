@@ -7,4 +7,4 @@ Starting
 * Plan your memory map (virtual, and physical) : decide where you want the data to be
 * The heap: allocating memory at runtime (malloc and free) is almost impossible to go without. It should be implemented as soon as possible. 
 
-(What order should I make things in?)[https://wiki.osdev.org/What_order_should_I_make_things_in]
+[What order should I make things in?](https://wiki.osdev.org/What_order_should_I_make_things_in)

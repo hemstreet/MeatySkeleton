@@ -14,4 +14,4 @@ Theory
 
 References
 ===
-* (Meaty Skeleton Github)[https://gitlab.com/sortie/meaty-skeleton]
+* [Meaty Skeleton Github](https://gitlab.com/sortie/meaty-skeleton)
