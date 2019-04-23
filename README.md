@@ -2,11 +2,11 @@
 Theory
 ===
 
-*`/sysroot`
-	*`/usr`
-		*`/include`
+* `/sysroot`
+	* `/usr`
+		* `/include`
 			* System headers
-		*`/lib`
+		* `/lib`
 			* System Libraries
-	*`/boot`
+	* `/boot`
 		* Actual Kernel code
