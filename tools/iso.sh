@@ -1,6 +1,10 @@
 #!/bin/sh
 set -e
-. ./build.sh
+
+# change scripts working directory so we can have a known path
+TOOLDIR="$(dirname "${0}")"
+
+. $TOOLDIR/build.sh
 
 cd $PROJECTROOT
 

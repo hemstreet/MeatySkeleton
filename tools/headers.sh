@@ -1,5 +1,6 @@
 #!/bin/sh
 set -e
+
 . ./config.sh
 
 cd $PROJECTROOT
