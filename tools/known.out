@@ -1,0 +1,32 @@
+mkdir -p /home/jon/Development/exampleMeatySkeleton/sysroot/usr/include
+cp -R --preserve=timestamps include/. /home/jon/Development/exampleMeatySkeleton/sysroot/usr/include/.
+mkdir -p /home/jon/Development/exampleMeatySkeleton/sysroot/usr/include
+cp -R --preserve=timestamps include/. /home/jon/Development/exampleMeatySkeleton/sysroot/usr/include/.
+mkdir -p /home/jon/Development/exampleMeatySkeleton/sysroot/usr/include
+cp -R --preserve=timestamps include/. /home/jon/Development/exampleMeatySkeleton/sysroot/usr/include/.
+i686-elf-gcc --sysroot=/home/jon/Development/exampleMeatySkeleton/sysroot -isystem=/usr/include -MD -c stdio/printf.c -o stdio/printf.libk.o -std=gnu11 -O2 -g -ffreestanding -Wall -Wextra   -D__is_libc -Iinclude -D__is_libk 
+i686-elf-gcc --sysroot=/home/jon/Development/exampleMeatySkeleton/sysroot -isystem=/usr/include -MD -c stdio/putchar.c -o stdio/putchar.libk.o -std=gnu11 -O2 -g -ffreestanding -Wall -Wextra   -D__is_libc -Iinclude -D__is_libk 
+i686-elf-gcc --sysroot=/home/jon/Development/exampleMeatySkeleton/sysroot -isystem=/usr/include -MD -c stdio/puts.c -o stdio/puts.libk.o -std=gnu11 -O2 -g -ffreestanding -Wall -Wextra   -D__is_libc -Iinclude -D__is_libk 
+i686-elf-gcc --sysroot=/home/jon/Development/exampleMeatySkeleton/sysroot -isystem=/usr/include -MD -c stdlib/abort.c -o stdlib/abort.libk.o -std=gnu11 -O2 -g -ffreestanding -Wall -Wextra   -D__is_libc -Iinclude -D__is_libk 
+i686-elf-gcc --sysroot=/home/jon/Development/exampleMeatySkeleton/sysroot -isystem=/usr/include -MD -c string/memcmp.c -o string/memcmp.libk.o -std=gnu11 -O2 -g -ffreestanding -Wall -Wextra   -D__is_libc -Iinclude -D__is_libk 
+i686-elf-gcc --sysroot=/home/jon/Development/exampleMeatySkeleton/sysroot -isystem=/usr/include -MD -c string/memcpy.c -o string/memcpy.libk.o -std=gnu11 -O2 -g -ffreestanding -Wall -Wextra   -D__is_libc -Iinclude -D__is_libk 
+i686-elf-gcc --sysroot=/home/jon/Development/exampleMeatySkeleton/sysroot -isystem=/usr/include -MD -c string/memmove.c -o string/memmove.libk.o -std=gnu11 -O2 -g -ffreestanding -Wall -Wextra   -D__is_libc -Iinclude -D__is_libk 
+i686-elf-gcc --sysroot=/home/jon/Development/exampleMeatySkeleton/sysroot -isystem=/usr/include -MD -c string/memset.c -o string/memset.libk.o -std=gnu11 -O2 -g -ffreestanding -Wall -Wextra   -D__is_libc -Iinclude -D__is_libk 
+i686-elf-gcc --sysroot=/home/jon/Development/exampleMeatySkeleton/sysroot -isystem=/usr/include -MD -c string/strlen.c -o string/strlen.libk.o -std=gnu11 -O2 -g -ffreestanding -Wall -Wextra   -D__is_libc -Iinclude -D__is_libk 
+i686-elf-ar rcs libk.a stdio/printf.libk.o stdio/putchar.libk.o stdio/puts.libk.o stdlib/abort.libk.o string/memcmp.libk.o string/memcpy.libk.o string/memmove.libk.o string/memset.libk.o string/strlen.libk.o
+mkdir -p /home/jon/Development/exampleMeatySkeleton/sysroot/usr/lib
+cp libk.a /home/jon/Development/exampleMeatySkeleton/sysroot/usr/lib
+mkdir -p /home/jon/Development/exampleMeatySkeleton/sysroot/usr/include
+cp -R --preserve=timestamps include/. /home/jon/Development/exampleMeatySkeleton/sysroot/usr/include/.
+i686-elf-gcc --sysroot=/home/jon/Development/exampleMeatySkeleton/sysroot -isystem=/usr/include -MD -c arch/i386/crti.S -o arch/i386/crti.o -O2 -g -ffreestanding -Wall -Wextra   -D__is_kernel -Iinclude 
+OBJ=`i686-elf-gcc --sysroot=/home/jon/Development/exampleMeatySkeleton/sysroot -isystem=/usr/include -O2 -g -ffreestanding -Wall -Wextra    -print-file-name=crtbegin.o` && cp "$OBJ" arch/i386/crtbegin.o
+i686-elf-gcc --sysroot=/home/jon/Development/exampleMeatySkeleton/sysroot -isystem=/usr/include -MD -c arch/i386/boot.S -o arch/i386/boot.o -O2 -g -ffreestanding -Wall -Wextra   -D__is_kernel -Iinclude 
+i686-elf-gcc --sysroot=/home/jon/Development/exampleMeatySkeleton/sysroot -isystem=/usr/include -MD -c arch/i386/tty.c -o arch/i386/tty.o -std=gnu11 -O2 -g -ffreestanding -Wall -Wextra   -D__is_kernel -Iinclude 
+i686-elf-gcc --sysroot=/home/jon/Development/exampleMeatySkeleton/sysroot -isystem=/usr/include -MD -c kernel/kernel.c -o kernel/kernel.o -std=gnu11 -O2 -g -ffreestanding -Wall -Wextra   -D__is_kernel -Iinclude 
+OBJ=`i686-elf-gcc --sysroot=/home/jon/Development/exampleMeatySkeleton/sysroot -isystem=/usr/include -O2 -g -ffreestanding -Wall -Wextra    -print-file-name=crtend.o` && cp "$OBJ" arch/i386/crtend.o
+i686-elf-gcc --sysroot=/home/jon/Development/exampleMeatySkeleton/sysroot -isystem=/usr/include -MD -c arch/i386/crtn.S -o arch/i386/crtn.o -O2 -g -ffreestanding -Wall -Wextra   -D__is_kernel -Iinclude 
+i686-elf-gcc --sysroot=/home/jon/Development/exampleMeatySkeleton/sysroot -isystem=/usr/include -T arch/i386/linker.ld -o myos.kernel -O2 -g -ffreestanding -Wall -Wextra    arch/i386/crti.o arch/i386/crtbegin.o arch/i386/boot.o arch/i386/tty.o  kernel/kernel.o   -nostdlib -lk -lgcc  arch/i386/crtend.o arch/i386/crtn.o 
+grub-file --is-x86-multiboot myos.kernel
+mkdir -p /home/jon/Development/exampleMeatySkeleton/sysroot/boot
+cp myos.kernel /home/jon/Development/exampleMeatySkeleton/sysroot/boot
+

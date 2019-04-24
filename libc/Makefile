@@ -9,6 +9,7 @@ libc.a: $(OBJS)
 	$(AR) rcs $@ $(OBJS)
 
 libk.a: $(LIBK_OBJS)
+	echo $(AR)
 	$(AR) rcs $@ $(LIBK_OBJS)
 
 .c.o:
