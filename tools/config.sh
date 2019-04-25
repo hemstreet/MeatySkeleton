@@ -1,13 +1,11 @@
 SYSTEM_HEADER_PROJECTS="libc kernel"
 PROJECTS="libc kernel"
 
-export PROJECTROOT="$(pwd)/.."
-
 export OSNAME="MY OS"
 export OSFILENAME="myos"
 
 export MAKE=${MAKE:-make}
-export HOST=${HOST:-$(./default-host.sh)}
+export HOST=${HOST:-$($TOOLSDIR/default-host.sh)}
 
 export AR=${HOST}-ar
 export AS=${HOST}-as

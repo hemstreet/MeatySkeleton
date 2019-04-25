@@ -1,13 +1,16 @@
 #!/bin/sh
 set -e
 
-# change scripts working directory so we can have a known path
-TOOLDIR="$(dirname "${0}")"
+TOOLSDIR=${TOOLSDIR:-"$(cd `dirname $0` && pwd)"}
+PROJECTROOT=${PROJECTROOT:-"${TOOLSDIR}/.."}
 
-. $TOOLDIR/build.sh
+# change scripts working directory so we can have a known path
+
+. $TOOLSDIR/build.sh
 
 cd $PROJECTROOT
 
+# make these in the context to our project root dir
 mkdir -p isodir
 mkdir -p isodir/boot
 mkdir isodir/boot/grub

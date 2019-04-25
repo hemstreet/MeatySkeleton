@@ -1,14 +1,20 @@
 #!/bin/bash
 set -e
 
-cd "$(dirname "$0")"
+TOOLSDIR=${TOOLSDIR:-"$(cd `dirname $0` && pwd)"}
+PROJECTROOT=${PROJECTROOT:-"${TOOLSDIR}/.."}
 
-. ./config.sh
+. $TOOLSDIR/config.sh
 
-cd $PROJECTROOT
+# Take first argument as projects, otherwise default to $PROJECTS
+PROJECTS=${*-$PROJECTS}
 
 for PROJECT in $PROJECTS; do
-	(cd $PROJECT && $MAKE clean)
+	echo
+    echo "cleaning ${PROJECT}"
+    echo
+    (cd $TOOLSDIR/../$PROJECT && $MAKE clean)
+    echo
 done
 
 rm -rf sysroot

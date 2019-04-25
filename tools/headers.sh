@@ -1,7 +1,10 @@
 #!/bin/sh
 set -e
 
-. ./config.sh
+TOOLSDIR=${TOOLSDIR:-"$(cd `dirname $0` && pwd)"}
+PROJECTROOT=${PROJECTROOT:-"${TOOLSDIR}/.."}
+
+. $TOOLSDIR/config.sh
 
 cd $PROJECTROOT
 
